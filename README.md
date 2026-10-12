@@ -42,3 +42,7 @@ Offline support is enabled in the production build (`npm run build` then `npm ru
 Select the **Add to shopping list** checkbox on recipe cards, then open **Shopping list** from the sidebar or top bar. Ingredients are combined for the recipes' full quantities. Matching ingredient names and compatible metric units are summed; differing descriptions and incompatible units stay separate. Unknown amounts keep their original wording and show a repetition count. Mark items as bought, copy the list, or download a text file. Changes to an ingredient's total or contributing recipes reset its purchased status.
 
 Selections and purchased items persist offline in browser storage, separately for each account and the device-only collection. Shopping lists do not currently sync across devices. Removing a recipe from the list or clearing it does not delete any recipes.
+
+## Recipe photos
+
+Use **Choose from gallery** when adding or editing a recipe. A preview appears before saving; **Change photo** and **Remove photo** are available. JPG, PNG, WebP, GIF and AVIF inputs up to 20 MB are decoded by the browser, resized to at most 768 pixels, and compressed as JPEG to fit the existing recipe storage limit. HEIC inputs require exporting as JPG first. Uploaded photos are embedded in recipes, so they work offline, are included in backups, and sync with signed-in accounts without a new Supabase storage bucket or schema change. Update Gatime on all devices to display embedded photos. Browser storage limits still apply; an unsuccessful save leaves the previous recipe unchanged.

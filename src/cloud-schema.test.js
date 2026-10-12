@@ -7,7 +7,7 @@ import { DEMO_RECIPES } from './recipes.js';
 test('database enforces account isolation, version conflicts, idempotent retries and deletions', async t => {
   const db = new PGlite();
   const alice='11111111-1111-4111-8111-111111111111', bob='22222222-2222-4222-8222-222222222222';
-  const recipe={...DEMO_RECIPES[0],id:'shared-id'};
+  const recipe={...DEMO_RECIPES[0],id:'shared-id',image:'data:image/jpeg;base64,/9j/'+'A'.repeat(59970)};
   let mutation=0;
   const nextMutation=()=>`00000000-0000-4000-8000-${String(++mutation).padStart(12,'0')}`;
   try {
@@ -25,7 +25,7 @@ test('database enforces account isolation, version conflicts, idempotent retries
       const result=await db.query('select public.save_recipe($1,$2::jsonb,$3,$4::uuid) as result',['shared-id',data === null ? null : JSON.stringify(data),version,id]);return result.rows[0].result;
     }
     await t.test('signed-in account can save and retry safely',async()=>{
-      await asUser(alice);const id=nextMutation();const first=await save(recipe,0,id);assert.equal(first.status,'applied');assert.equal(first.row.version,1);
+      await asUser(alice);const id=nextMutation();const first=await save(recipe,0,id);assert.equal(first.status,'applied');assert.equal(first.row.version,1);assert.equal(first.row.data.image,recipe.image);
       const again=await save(recipe,0,id);assert.deepEqual(again,first);
     });
     await t.test('another account cannot read or overwrite the first account’s data',async()=>{

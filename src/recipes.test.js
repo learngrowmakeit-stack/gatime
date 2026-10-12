@@ -18,3 +18,8 @@ test('backup import rejects malformed or invalid recipe data', () => {
   for (const data of [{},[null],[{...recipe,ingredients:[2]}],[{...recipe,calories:-1}],[{...recipe,category:'unknown'}]]) assert.throws(() => parseRecipes(JSON.stringify(data)));
   assert.deepEqual(parseRecipes('[]'), []);
 });
+test('embedded JPEG photos survive backup and restore while unsafe image types are removed',()=>{
+ const image='data:image/jpeg;base64,/9j/AAAA';
+ assert.equal(parseRecipes(JSON.stringify([{...recipe,image}]))[0].image,image);
+ for(const image of ['data:image/svg+xml;base64,AAAA','javascript:alert(1)','data:image/jpeg;base64,/9j/'+ 'A'.repeat(60000)])assert.equal(parseRecipes(JSON.stringify([{...recipe,image}]))[0].image,'');
+});

@@ -1,3 +1,4 @@
+import { safeRecipeImage } from './photos.js';
 export const CATEGORIES = ['Main dish', 'Seafood', 'Desserts', 'Pasta', 'Breakfast', 'Salads', 'Soups'];
 export const STORAGE_KEY = 'gatime.recipes.v1';
 export const NUTRIENTS = ['calories', 'protein', 'carbs', 'fat'];
@@ -25,7 +26,7 @@ export function parseRecipes(text) {
     if (!recipe || typeof recipe !== 'object' || typeof recipe.title !== 'string' || typeof recipe.description !== 'string' || !Array.isArray(recipe.ingredients) || !recipe.ingredients.every(x => typeof x === 'string') || !Array.isArray(recipe.instructions) || !recipe.instructions.every(x => typeof x === 'string') || typeof recipe.id !== 'string' || typeof recipe.favorite !== 'boolean') throw new Error('This file contains an invalid recipe.');
     const error = validateRecipe(recipe);
     if (error) throw new Error(error);
-    return normalizeRecipe({ ...recipe, image: typeof recipe.image === 'string' && recipe.image.startsWith('https://') ? recipe.image : '' });
+    return normalizeRecipe({ ...recipe, image: safeRecipeImage(recipe.image) });
   });
 }
 export const DEMO_RECIPES = [
