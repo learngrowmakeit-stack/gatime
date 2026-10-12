@@ -7,14 +7,16 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test src/recipes.test.js"
+    "test": "node --test src/recipes.test.js src/sync-core.test.js src/cloud-schema.test.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.3",
     "lucide-react": "^0.468.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.9",
     "vite": "^6.0.0",
     "vite-plugin-pwa": "^2.0.0"
   }
