@@ -938,5 +938,97 @@ export const messages = {
   "{count} servings": [
     "{count} porcione",
     "{count} Portionen"
+  ],
+  "Paste a complete recipe": [
+    "Ngjit një recetë të plotë",
+    "Vollständiges Rezept einfügen"
+  ],
+  "Copy a recipe and paste it here. Ingredients, instructions and other recognized fields are separated automatically. Review before saving.": [
+    "Kopjo një recetë dhe ngjite këtu. Përbërësit, udhëzimet dhe fushat e njohura ndahen automatikisht. Kontrolloji para ruajtjes.",
+    "Kopiere ein Rezept hierher. Zutaten, Zubereitung und erkannte Felder werden automatisch getrennt. Prüfe alles vor dem Speichern."
+  ],
+  "Pasted recipe text": [
+    "Teksti i ngjitur i recetës",
+    "Eingefügter Rezepttext"
+  ],
+  "{ingredients} ingredients · {steps} steps detected": [
+    "U gjetën {ingredients} përbërës dhe {steps} hapa",
+    "{ingredients} Zutaten und {steps} Schritte erkannt"
+  ],
+  "Fields filled. Check the recipe below before saving.": [
+    "Fushat u plotësuan. Kontrollo recetën më poshtë para ruajtjes.",
+    "Felder ausgefüllt. Prüfe das Rezept vor dem Speichern."
+  ],
+  "Fill recipe fields": [
+    "Plotëso fushat e recetës",
+    "Rezeptfelder ausfüllen"
+  ],
+  "Some sections were not found. Add or correct the missing fields below.": [
+    "Disa pjesë nuk u gjetën. Plotëso ose korrigjo fushat më poshtë.",
+    "Einige Abschnitte fehlen. Ergänze oder korrigiere die Felder unten."
+  ],
+  "Text to review (not added automatically)": [
+    "Tekst për kontroll (nuk shtohet automatikisht)",
+    "Text zur Prüfung (nicht automatisch übernommen)"
+  ],
+  "Nutrition is filled only when the text explicitly says per serving.": [
+    "Vlerat ushqyese plotësohen vetëm kur teksti thotë shprehimisht për porcion.",
+    "Nährwerte werden nur übernommen, wenn ausdrücklich pro Portion angegeben ist."
+  ],
+  "Paste up to 20,000 characters of recipe text.": [
+    "Ngjit deri në 20 000 karaktere teksti.",
+    "Füge bis zu 20.000 Zeichen Rezepttext ein."
+  ],
+  "Recipe content language": [
+    "Gjuha e përmbajtjes së recetave",
+    "Sprache der Rezeptinhalte"
+  ],
+  "Translate recipe content into the selected language": [
+    "Përkthe përmbajtjen e recetave në gjuhën e zgjedhur",
+    "Rezeptinhalte in die ausgewählte Sprache übersetzen"
+  ],
+  "Translating recipes…": [
+    "Duke përkthyer recetat…",
+    "Rezepte werden übersetzt…"
+  ],
+  "Try again": [
+    "Provo përsëri",
+    "Erneut versuchen"
+  ],
+  "Sign in to translate recipe content. Original recipes are still available.": [
+    "Hyr në llogari për të përkthyer recetat. Origjinalet janë ende të disponueshme.",
+    "Melde dich zum Übersetzen an. Die Originalrezepte bleiben verfügbar."
+  ],
+  "You are offline. Previously translated recipes remain available; other recipes use the original text.": [
+    "Je pa internet. Përkthimet e ruajtura janë të disponueshme; recetat e tjera shfaqin origjinalin.",
+    "Du bist offline. Gespeicherte Übersetzungen bleiben verfügbar; andere Rezepte zeigen den Originaltext."
+  ],
+  "Recipe translation needs a Gemini API key in Vercel.": [
+    "Përkthimi kërkon çelësin Gemini API në Vercel.",
+    "Die Rezeptübersetzung benötigt einen Gemini-API-Schlüssel in Vercel."
+  ],
+  "Translation limit reached. Try again later. Original recipes are still available.": [
+    "U arrit kufiri i përkthimit. Provo më vonë. Origjinalet janë ende të disponueshme.",
+    "Übersetzungslimit erreicht. Versuche es später erneut. Die Originale bleiben verfügbar."
+  ],
+  "This recipe is too long to translate automatically. Original text is kept.": [
+    "Receta është tepër e gjatë për përkthim automatik. Origjinali ruhet.",
+    "Das Rezept ist zu lang für die automatische Übersetzung. Der Originaltext bleibt erhalten."
+  ],
+  "The translation could not be verified. Original recipe text has been kept.": [
+    "Përkthimi nuk mund të verifikohej. Teksti origjinal është ruajtur.",
+    "Die Übersetzung konnte nicht geprüft werden. Der Originaltext bleibt erhalten."
+  ],
+  "Could not translate recipes. Try again later. Original recipes are still available.": [
+    "Përkthimi dështoi. Provo më vonë. Origjinalet janë ende të disponueshme.",
+    "Übersetzung fehlgeschlagen. Versuche es später erneut. Die Originale bleiben verfügbar."
+  ],
+  "You are editing the original recipe. Translations do not replace it.": [
+    "Po ndryshon recetën origjinale. Përkthimet nuk e zëvendësojnë atë.",
+    "Du bearbeitest das Originalrezept. Übersetzungen ersetzen es nicht."
+  ],
+  "Recipe name\nIngredients:\n200 g flour\nInstructions:\n1. Mix the ingredients.": [
+    "Emri i recetës\nPërbërësit:\n200 g miell\nUdhëzimet:\n1. Përziej përbërësit.",
+    "Rezeptname\nZutaten:\n200 g Mehl\nZubereitung:\n1. Zutaten mischen."
   ]
 };
