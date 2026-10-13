@@ -46,3 +46,7 @@ Selections and purchased items persist offline in browser storage, separately fo
 ## Recipe photos
 
 Use **Choose from gallery** when adding or editing a recipe. A preview appears before saving; **Change photo** and **Remove photo** are available. JPG, PNG, WebP, GIF and AVIF inputs up to 20 MB are decoded by the browser, resized to at most 768 pixels, and compressed as JPEG to fit the existing recipe storage limit. HEIC inputs require exporting as JPG first. Uploaded photos are embedded in recipes, so they work offline, are included in backups, and sync with signed-in accounts without a new Supabase storage bucket or schema change. Update Gatime on all devices to display embedded photos. Browser storage limits still apply; an unsuccessful save leaves the previous recipe unchanged.
+
+## Interface languages
+
+Choose **Shqip**, **Deutsch**, or **English** in the top bar. Albanian is the default. The choice is saved on this device, works offline, and updates the page language and title. Menus, categories, recipe forms, photo controls, account messages, shopping lists and shopping export headings are translated. Recipe titles, descriptions, ingredients and instructions remain as originally written (including starter recipe content). Category IDs remain unchanged in storage and cloud sync. Add or edit interface translations in `src/translations.js`; interpolation parameters must be preserved.
