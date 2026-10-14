@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/check-cloud-config.mjs && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test src/recipes.test.js src/sync-core.test.js src/cloud-schema.test.js src/shopping.test.js src/i18n.test.js src/paste-recipe.test.js src/translation-api.test.js src/servings.test.js src/meal-plan.test.js"
+    "test": "node --test src/recipes.test.js src/sync-core.test.js src/cloud-schema.test.js src/shopping.test.js src/i18n.test.js src/paste-recipe.test.js src/translation-api.test.js src/servings.test.js src/meal-plan.test.js src/timer.test.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",

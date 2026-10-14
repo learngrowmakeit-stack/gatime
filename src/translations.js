@@ -1095,5 +1095,17 @@ export const messages = {
 "Go to step {step}": ["Shko te hapi {step}", "Zu Schritt {step}"],
 "Add instructions to this recipe before starting cooking.": ["Shto udhëzime te receta përpara se të fillosh gatimin.", "Füge dem Rezept vor dem Kochen eine Anleitung hinzu."],
 "Ingredient quantities match your chosen portions. Check quantities written in the instructions separately.": ["Sasitë e përbërësve janë për porcionet e zgjedhura. Kontrollo veçmas sasitë e shkruara në udhëzime.", "Die Zutatenmengen entsprechen den gewählten Portionen. Prüfe Mengenangaben in der Anleitung separat."],
-"Progress is kept while this cooking view is open. Closing it starts a new cooking session.": ["Ecuria ruhet sa kohë kjo pamje mbetet e hapur. Pas mbylljes, gatimi fillon nga e para.", "Der Fortschritt bleibt erhalten, solange diese Ansicht geöffnet ist. Nach dem Schließen beginnt eine neue Kochsitzung."]
+"Progress is kept while this cooking view is open. Closing it starts a new cooking session.": ["Ecuria ruhet sa kohë kjo pamje mbetet e hapur. Pas mbylljes, gatimi fillon nga e para.", "Der Fortschritt bleibt erhalten, solange diese Ansicht geöffnet ist. Nach dem Schließen beginnt eine neue Kochsitzung."],
+"Cooking timer": ["Kohëmatësi i gatimit", "Kochtimer"],
+"Step {step}": ["Hapi {step}", "Schritt {step}"],
+"Timer minutes": ["Minuta", "Minuten"],
+"Timer seconds": ["Sekonda", "Sekunden"],
+"Time remaining": ["Koha e mbetur", "Verbleibende Zeit"],
+"Time is up! Check your food.": ["Koha mbaroi! Kontrollo ushqimin.", "Die Zeit ist um! Prüfe dein Essen."],
+"Start timer": ["Nis kohëmatësin", "Timer starten"],
+"Pause timer": ["Ndalo përkohësisht", "Timer pausieren"],
+"Resume timer": ["Vazhdo kohëmatësin", "Timer fortsetzen"],
+"Reset timer": ["Rivendos kohëmatësin", "Timer zurücksetzen"],
+"Choose 0\u20131,440 minutes and 0\u201359 seconds, with a total greater than zero.": ["Zgjidh 0–1 440 minuta dhe 0–59 sekonda, me kohë totale më të madhe se zero.", "Wähle 0–1.440 Minuten und 0–59 Sekunden mit einer Gesamtzeit größer als null."],
+"The timer continues when you change steps. Closing cooking mode cancels it. Keep this view open for alerts; sound may be delayed while the phone is locked or the app is in the background.": ["Kohëmatësi vazhdon kur ndryshon hapin. Mbyllja e pamjes së gatimit e anulon. Mbaje këtë pamje hapur për sinjalin; tingulli mund të vonohet kur telefoni është i kyçur ose aplikacioni është në sfond.", "Der Timer läuft beim Wechseln der Schritte weiter. Beim Schließen des Kochmodus wird er abgebrochen. Halte diese Ansicht für Hinweise geöffnet; bei gesperrtem Telefon oder im Hintergrund kann der Ton verzögert sein."]
 };

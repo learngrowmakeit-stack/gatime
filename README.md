@@ -72,3 +72,5 @@ Open **Weekly meal plan** in the navigation. Choose recipes for breakfast, lunch
 ## Cooking mode
 
 Open a recipe, choose portions, and click **Start cooking**. Follow one instruction at a time, mark steps completed, navigate backward or forward, or jump to a numbered step. Expand Ingredients for a separate checklist with scaled quantities. Instructions keep their original numerical amounts. Progress lasts only while this cooking view is open; exiting resets it. Works offline with available recipe content.
+
+Cooking mode includes a timer with minutes and seconds, pause/resume and reset. It continues across step changes and computes remaining time from a wall-clock deadline, catching up when the tab becomes visible again. Completion shows an alert and attempts a short tone/vibration where supported. Background or locked-phone audio is not guaranteed; keep the cooking view open. Closing the view cancels the timer. No push notification permission is required.
