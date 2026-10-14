@@ -68,3 +68,7 @@ Translations are cached separately for each account and language on this browser
 ## Weekly meal planning
 
 Open **Weekly meal plan** in the navigation. Choose recipes for breakfast, lunch and dinner from Monday to Sunday, with portions per meal. Browse previous or next weeks; choices persist offline, separately per account and guest. Plans are local to this device and do not sync. Clearing a week requires confirmation and never deletes recipes. Deleted recipes are flagged so you can replace them. Creating the shopping list replaces its current selection and purchased flags; repeated recipes contribute their total portions. Original recipes remain unchanged.
+
+## Cooking mode
+
+Open a recipe, choose portions, and click **Start cooking**. Follow one instruction at a time, mark steps completed, navigate backward or forward, or jump to a numbered step. Expand Ingredients for a separate checklist with scaled quantities. Instructions keep their original numerical amounts. Progress lasts only while this cooking view is open; exiting resets it. Works offline with available recipe content.

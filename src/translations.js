@@ -1081,5 +1081,19 @@ export const messages = {
 "This recipe is no longer available. Choose another recipe.": ["Kjo recetë nuk është më në dispozicion. Zgjidh një tjetër.", "Dieses Rezept ist nicht mehr verfügbar. Wähle ein anderes."],
 "Choose recipes and portions for each meal. Repeated recipes are added together when you create the shopping list.": ["Zgjidh receta dhe porcione për çdo vakt. Recetat e përsëritura mblidhen kur krijon listën e blerjeve.", "Wähle Rezepte und Portionen für jede Mahlzeit. Wiederholte Rezepte werden für die Einkaufsliste zusammengerechnet."],
 "Creating a list replaces the current shopping selection and purchased checkmarks. The plan is saved on this device and works offline; it does not sync across devices.": ["Krijimi i listës zëvendëson recetat e zgjedhura për blerje dhe shenjat e artikujve të blerë. Plani ruhet në këtë pajisje dhe punon pa internet; nuk sinkronizohet mes pajisjeve.", "Die neue Liste ersetzt die aktuelle Einkaufsauswahl und Kaufmarkierungen. Der Plan wird auf diesem Gerät gespeichert und funktioniert offline; er wird nicht zwischen Geräten synchronisiert."],
-"Could not save the meal plan. Check browser storage and try again.": ["Plani nuk u ruajt. Kontrollo hapësirën e shfletuesit dhe provo përsëri.", "Der Wochenplan konnte nicht gespeichert werden. Prüfe den Browserspeicher und versuche es erneut."]
+"Could not save the meal plan. Check browser storage and try again.": ["Plani nuk u ruajt. Kontrollo hapësirën e shfletuesit dhe provo përsëri.", "Der Wochenplan konnte nicht gespeichert werden. Prüfe den Browserspeicher und versuche es erneut."],
+"Start cooking": ["Fillo gatimin", "Kochen starten"],
+"Cooking mode": ["Gatim hap pas hapi", "Kochmodus"],
+"Back to recipe": ["Kthehu te receta", "Zurück zum Rezept"],
+"Completed {done} of {total} steps": ["Përfunduar {done} nga {total} hapa", "{done} von {total} Schritten erledigt"],
+"Cooking progress": ["Ecuria e gatimit", "Kochfortschritt"],
+"All steps completed. Enjoy your meal!": ["Të gjithë hapat u përfunduan. Ju bëftë mirë!", "Alle Schritte erledigt. Guten Appetit!"],
+"Step {step} of {total}": ["Hapi {step} nga {total}", "Schritt {step} von {total}"],
+"Mark this step as completed": ["Shëno këtë hap si të përfunduar", "Diesen Schritt als erledigt markieren"],
+"Previous step": ["Hapi i mëparshëm", "Vorheriger Schritt"],
+"Next step": ["Hapi tjetër", "Nächster Schritt"],
+"Go to step {step}": ["Shko te hapi {step}", "Zu Schritt {step}"],
+"Add instructions to this recipe before starting cooking.": ["Shto udhëzime te receta përpara se të fillosh gatimin.", "Füge dem Rezept vor dem Kochen eine Anleitung hinzu."],
+"Ingredient quantities match your chosen portions. Check quantities written in the instructions separately.": ["Sasitë e përbërësve janë për porcionet e zgjedhura. Kontrollo veçmas sasitë e shkruara në udhëzime.", "Die Zutatenmengen entsprechen den gewählten Portionen. Prüfe Mengenangaben in der Anleitung separat."],
+"Progress is kept while this cooking view is open. Closing it starts a new cooking session.": ["Ecuria ruhet sa kohë kjo pamje mbetet e hapur. Pas mbylljes, gatimi fillon nga e para.", "Der Fortschritt bleibt erhalten, solange diese Ansicht geöffnet ist. Nach dem Schließen beginnt eine neue Kochsitzung."]
 };

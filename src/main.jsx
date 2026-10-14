@@ -15,6 +15,7 @@ import RecipePaste from './RecipePaste';
 import useTranslatedRecipes from './useTranslatedRecipes';
 import { scaleRecipe, targetServings } from './servings';
 import ServingControl from './ServingControl';
+import CookingMode from './CookingMode';
 const blankRecipe = () => ({
   title: '',
   description: '',
@@ -66,6 +67,8 @@ function App() {
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState('recent');
   const [selected, setSelected] = useState(null);
+  const [cooking,setCooking]=useState(false);
+  useEffect(()=>setCooking(false),[selected,account.user?.id]);
   const [editing, setEditing] = useState(null);
   const [notice, setNotice] = useState('');
   const shopping = useShopping(account.user?.id, setNotice);
@@ -203,12 +206,12 @@ function App() {
         </section></>}<footer className="page-footer"><span><Leaf size={14} />{t("Made for the love of food.")}</span><span>{t("Sample recipes included \xB7 Sample nutrition is approximate")}</span></footer>
       </div>
     </main>
-    {active && !editing && <Modal title={displayActive.title} onClose={() => setSelected(null)}><div className="recipe-detail">{active.image && <img className="detail-image" src={active.image} alt={displayActive.title} onError={e => fallbackImage(e, active.category)} />}<div className="detail-heading"><span className="detail-category">{t(active.category)}</span><button className="icon-button" aria-label={t("Toggle favorite")} onClick={() => toggleFavorite(active)}><Heart size={21} fill={active.favorite ? 'currentColor' : 'none'} /></button></div><h2>{displayActive.title}</h2><p className="description">{displayActive.description}</p><div className="detail-meta"><span><Clock size={16} />{active.minutes == null ? t("Time not set") : t("{p0} minutes", {
+    {active && !editing && <Modal title={displayActive.title} onClose={() => setSelected(null)}>{cooking ? <CookingMode key={active.id} recipe={displayActive} onExit={()=>setCooking(false)}/> : <div className="recipe-detail">{active.image && <img className="detail-image" src={active.image} alt={displayActive.title} onError={e => fallbackImage(e, active.category)} />}<div className="detail-heading"><span className="detail-category">{t(active.category)}</span><button className="icon-button" aria-label={t("Toggle favorite")} onClick={() => toggleFavorite(active)}><Heart size={21} fill={active.favorite ? 'currentColor' : 'none'} /></button></div><h2>{displayActive.title}</h2><p className="description">{displayActive.description}</p><div className="detail-meta"><span><Clock size={16} />{active.minutes == null ? t("Time not set") : t("{p0} minutes", {
               p0: active.minutes
-            })}</span><span><Utensils size={16} />{t(active.servings === 1 ? '{count} serving' : '{count} servings', {count: active.servings})}</span></div><section className="portion-panel"><ServingControl value={activeCount} onChange={count => shopping.setServings(active.id, count)}/><p>{t('Original recipe: {count} portions. Your recipe stays unchanged.', {count: active.servings})}</p><small>{t('Ingredient amounts are adjusted. Review items without clear amounts and quantities mentioned in the instructions. Cooking times and nutrition per serving stay unchanged.')}</small></section><section className="nutrition-panel"><h3>{t("Nutrition") + " "}<span>{t("per serving")}</span></h3><div className="nutrition-grid">{Object.entries(nutritionLabels).map(([key, label]) => <div key={key}><strong>{active[key] ?? '—'}<small>{active[key] == null ? '' : key === 'calories' ? ' kcal' : ' g'}</small></strong><span>{t(label)}</span></div>)}</div><p>{active.id.startsWith('demo-') ? t("Approximate sample values, provided for inspiration.") : t("Values entered by you. Nutrition is not calculated automatically.")}</p></section><div className="recipe-columns"><section><h3>{t("Ingredients")}</h3>{displayActive.ingredients.map((line, i) => <label className="ingredient" key={`${active.id}-${i}`}><input type="checkbox" /><span>{line}</span></label>)}</section><section><h3>{t("Instructions")}</h3><ol className="instructions">{displayActive.instructions.map((line, i) => <li key={i}><span>{i + 1}</span><p>{line}</p></li>)}</ol></section></div><div className="detail-actions"><button className="secondary-button" onClick={() => openEditor(active)}><Pencil size={16} />{t("Edit recipe")}</button><button className="delete-button" onClick={() => {
+            })}</span><span><Utensils size={16} />{t(active.servings === 1 ? '{count} serving' : '{count} servings', {count: active.servings})}</span></div><section className="portion-panel"><ServingControl value={activeCount} onChange={count => shopping.setServings(active.id, count)}/><p>{t('Original recipe: {count} portions. Your recipe stays unchanged.', {count: active.servings})}</p><small>{t('Ingredient amounts are adjusted. Review items without clear amounts and quantities mentioned in the instructions. Cooking times and nutrition per serving stay unchanged.')}</small></section><button className="primary-button cooking-start" disabled={!displayActive.instructions.length} onClick={()=>setCooking(true)}><ChefHat size={20}/>{t('Start cooking')}</button><section className="nutrition-panel"><h3>{t("Nutrition") + " "}<span>{t("per serving")}</span></h3><div className="nutrition-grid">{Object.entries(nutritionLabels).map(([key, label]) => <div key={key}><strong>{active[key] ?? '—'}<small>{active[key] == null ? '' : key === 'calories' ? ' kcal' : ' g'}</small></strong><span>{t(label)}</span></div>)}</div><p>{active.id.startsWith('demo-') ? t("Approximate sample values, provided for inspiration.") : t("Values entered by you. Nutrition is not calculated automatically.")}</p></section><div className="recipe-columns"><section><h3>{t("Ingredients")}</h3>{displayActive.ingredients.map((line, i) => <label className="ingredient" key={`${active.id}-${i}`}><input type="checkbox" /><span>{line}</span></label>)}</section><section><h3>{t("Instructions")}</h3><ol className="instructions">{displayActive.instructions.map((line, i) => <li key={i}><span>{i + 1}</span><p>{line}</p></li>)}</ol></section></div><div className="detail-actions"><button className="secondary-button" onClick={() => openEditor(active)}><Pencil size={16} />{t("Edit recipe")}</button><button className="delete-button" onClick={() => {
             setDeleteId(active.id);
             setDeleteVersion(account.revision(active.id));
-          }}><Trash2 size={16} />{t("Delete recipe")}</button></div></div></Modal>}
+          }}><Trash2 size={16} />{t("Delete recipe")}</button></div></div>}</Modal>}
     {editing && <RecipeForm recipe={editing} onClose={() => setEditing(null)} onSave={saveRecipe} />}
     {deleteId && <Modal title={t("Delete recipe?")} onClose={() => setDeleteId(null)} compact><h2>{t("Delete this recipe?")}</h2><p>{account.user ? t("This deletes the recipe from your account and all synced devices when online.") : t("This removes the recipe from this device.")}{" " + t("Export a backup first if you want to keep a copy.")}</p><div className="confirm-actions"><button className="secondary-button" onClick={() => setDeleteId(null)}>{t("Keep recipe")}</button><button className="danger-button" onClick={async () => {
           if (await persist(recipes.filter(r => r.id !== deleteId), {
@@ -242,7 +245,7 @@ function Modal({
     const key = e => {
       if (e.key === 'Escape') closeRef.current();
       if (e.key === 'Tab') {
-        const items = [...ref.current.querySelectorAll('button, input, select, textarea, a[href]')].filter(el => !el.disabled);
+        const items = [...ref.current.querySelectorAll('button, input, select, textarea, a[href], summary')].filter(el => !el.disabled && el.getClientRects().length > 0);
         const first = items[0],
           last = items.at(-1);
         if (e.shiftKey && (document.activeElement === first || document.activeElement === ref.current)) {
