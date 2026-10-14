@@ -41,6 +41,6 @@ export function buildShoppingList(recipes) {
     return {...row,label,checkKey:JSON.stringify([row.key,label,row.recipes.map(r=>r.id).sort()])};
   });
 }
-export function shoppingText(recipes, rows, checked, t = text => text) {
-  return `${t('Gatime shopping list')}\n\n${t('Recipes:')}\n${recipes.map(r=>`• ${r.title}`).join('\n')}\n\n${t('Ingredients:')}\n${rows.map(row=>`${checked.includes(row.checkKey)?'[x]':'[ ]'} ${row.label}`).join('\n')}`;
+export function shoppingText(recipes, rows, checked, t = (text,values={}) => text.replace(/\{(\w+)\}/g,(token,key)=>values[key]===undefined?token:String(values[key]))) {
+  return `${t('Gatime shopping list')}\n\n${t('Recipes:')}\n${recipes.map(r=>`• ${r.title}${r.baseServings!==undefined ? ` (${t('{count} servings',{count:r.servings})})` : ''}`).join('\n')}\n\n${t('Ingredients:')}\n${rows.map(row=>`${checked.includes(row.checkKey)?'[x]':'[ ]'} ${row.label}`).join('\n')}`;
 }

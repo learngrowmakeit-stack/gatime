@@ -1030,5 +1030,41 @@ export const messages = {
   "Recipe name\nIngredients:\n200 g flour\nInstructions:\n1. Mix the ingredients.": [
     "Emri i recetës\nPërbërësit:\n200 g miell\nUdhëzimet:\n1. Përziej përbërësit.",
     "Rezeptname\nZutaten:\n200 g Mehl\nZubereitung:\n1. Zutaten mischen."
+  ],
+  "Cooking portions": [
+    "Porcionet për gatim",
+    "Portionen zum Kochen"
+  ],
+  "Decrease portions": [
+    "Zvogëlo porcionet",
+    "Portionen verringern"
+  ],
+  "Increase portions": [
+    "Shto porcionet",
+    "Portionen erhöhen"
+  ],
+  "Choose a whole number of portions between 1 and 1,000.": [
+    "Zgjidh një numër të plotë porcionesh nga 1 deri në 1 000.",
+    "Wähle eine ganze Portionszahl zwischen 1 und 1.000."
+  ],
+  "Original recipe: {count} portions. Your recipe stays unchanged.": [
+    "Receta origjinale: {count} porcione. Receta jote mbetet e pandryshuar.",
+    "Originalrezept: {count} Portionen. Dein Rezept bleibt unverändert."
+  ],
+  "Ingredient amounts are adjusted. Review items without clear amounts and quantities mentioned in the instructions. Cooking times and nutrition per serving stay unchanged.": [
+    "Sasitë e përbërësve përshtaten. Kontrollo përbërësit pa sasi të qartë dhe sasitë në udhëzime. Koha e gatimit dhe vlerat ushqyese për porcion mbeten të njëjta.",
+    "Zutatenmengen werden angepasst. Prüfe unklare Mengen und Mengenangaben in der Zubereitung. Garzeiten und Nährwerte pro Portion bleiben unverändert."
+  ],
+  "Portions for {name}": [
+    "Porcione për {name}",
+    "Portionen für {name}"
+  ],
+  "For your chosen portions · {count} selected recipe": [
+    "Për porcionet e zgjedhura · {count} recetë e përzgjedhur",
+    "Für deine gewählten Portionen · {count} ausgewähltes Rezept"
+  ],
+  "For your chosen portions · {count} selected recipes": [
+    "Për porcionet e zgjedhura · {count} receta të përzgjedhura",
+    "Für deine gewählten Portionen · {count} ausgewählte Rezepte"
   ]
 };

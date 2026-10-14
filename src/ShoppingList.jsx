@@ -2,6 +2,7 @@ import { useLanguage } from './Language';
 import React, { useState } from 'react';
 import { ShoppingBasket, Copy, Download, X, RotateCcw, BookOpen } from 'lucide-react';
 import { buildShoppingList, shoppingText } from './shopping';
+import ServingControl from './ServingControl';
 export default function ShoppingList({
   recipes,
   shopping,
@@ -37,10 +38,8 @@ export default function ShoppingList({
   return <section className="shopping-page" aria-label={t("Shopping list")}>
     {shopping.error && <p className="storage-error" role="alert">{t(shopping.error)}</p>}
     {!recipes.length ? <div className="empty-state shopping-empty"><ShoppingBasket size={42} /><h3>{t("Your shopping list starts with a recipe.")}</h3><p>{t("Select the shopping checkbox on any recipe. Its ingredients will appear here.")}</p><button className="primary-button" onClick={onBrowse}><BookOpen size={16} />{t("Choose recipes")}</button></div> : <>
-      <div className="shopping-summary"><div><p className="eyebrow">{t("A LITTLE PLANNING. A DELICIOUS WEEK.")}</p><h2>{t(rows.length === 1 ? '{count} ingredient, one easy list.' : '{count} ingredients, one easy list.', {count: rows.length})}</h2><p>{t(recipes.length === 1 ? 'For the full recipe quantities · {count} selected recipe' : 'For the full recipe quantities · {count} selected recipes', {count: recipes.length})}</p></div><ShoppingBasket size={45} /></div>
-      <div className="shopping-recipes">{recipes.map(recipe => <span key={recipe.id}>{recipe.title}<button aria-label={t("Remove {p0} from shopping list", {
-            p0: recipe.title
-          })} onClick={() => shopping.toggleRecipe(recipe.id)}><X size={14} /></button></span>)}</div>
+      <div className="shopping-summary"><div><p className="eyebrow">{t("A LITTLE PLANNING. A DELICIOUS WEEK.")}</p><h2>{t(rows.length === 1 ? '{count} ingredient, one easy list.' : '{count} ingredients, one easy list.', {count: rows.length})}</h2><p>{t(recipes.length === 1 ? 'For your chosen portions · {count} selected recipe' : 'For your chosen portions · {count} selected recipes', {count: recipes.length})}</p></div><ShoppingBasket size={45} /></div>
+      <div className="shopping-portion-recipes">{recipes.map(recipe => <div key={recipe.id}><div><strong>{recipe.title}</strong><button className="icon-button" aria-label={t('Remove {p0} from shopping list',{p0:recipe.title})} onClick={() => shopping.toggleRecipe(recipe.id)}><X size={14}/></button></div><ServingControl value={recipe.servings} label={t('Portions for {name}',{name:recipe.title})} onChange={count => shopping.setServings(recipe.id,count)}/></div>)}</div>
       <div className="shopping-toolbar"><span>{bought}{" " + t("of") + " "}{rows.length}{" " + t("bought")}</span><div><button className="secondary-button" onClick={copy}><Copy size={15} />{t("Copy list")}</button><button className="secondary-button" onClick={download}><Download size={15} />{t("Download")}</button></div></div>
       {copyHelp && <label className="shopping-copy-help">{t("Copy this text into your notes or a message:")}<textarea readOnly value={text} rows={8} onFocus={event => event.target.select()} autoFocus /></label>}
       <div className="shopping-items">{rows.map(row => <label className={`shopping-item ${shopping.checked.includes(row.checkKey) ? 'bought' : ''}`} key={row.key}><input type="checkbox" checked={shopping.checked.includes(row.checkKey)} onChange={() => shopping.toggleItem(row.checkKey)} /><div><strong>{row.label}</strong><small>{row.recipes.map(recipe => recipe.title).join(' · ')}</small></div></label>)}</div>

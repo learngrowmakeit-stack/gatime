@@ -39,7 +39,9 @@ Offline support is enabled in the production build (`npm run build` then `npm ru
 
 ## Shopping lists
 
-Select the **Add to shopping list** checkbox on recipe cards, then open **Shopping list** from the sidebar or top bar. Ingredients are combined for the recipes' full quantities. Matching ingredient names and compatible metric units are summed; differing descriptions and incompatible units stay separate. Unknown amounts keep their original wording and show a repetition count. Mark items as bought, copy the list, or download a text file. Changes to an ingredient's total or contributing recipes reset its purchased status.
+Select the **Add to shopping list** checkbox on recipe cards, then open **Shopping list** from the sidebar or top bar. Ingredients are combined for the chosen portion counts. Matching ingredient names and compatible metric units are summed; differing descriptions and incompatible units stay separate. Unknown amounts keep their original wording and show a repetition count. Mark items as bought, copy the list, or download a text file. Changes to an ingredient's total or contributing recipes reset its purchased status.
+
+Open a recipe or the shopping list and use **Cooking portions** to choose 1–1000 portions. Clear leading ingredient quantities scale from the original recipe each time; package sizes and preparation notes remain unchanged. Review ingredients without clear amounts and quantities written inside instructions. Cooking times and nutrition per serving stay unchanged, and editing still opens the original recipe. Portion choices are saved locally and work offline.
 
 Selections and purchased items persist offline in browser storage, separately for each account and the device-only collection. Shopping lists do not currently sync across devices. Removing a recipe from the list or clearing it does not delete any recipes.
 
