@@ -1,0 +1,4 @@
+export const meals = ['Breakfast','Lunch','Dinner'];
+export function dateKey(date) {return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;}
+export function weekDays(date) {const monday=new Date(date.getFullYear(),date.getMonth(),date.getDate(),12);monday.setDate(monday.getDate()-(monday.getDay()+6)%7);return Array.from({length:7},(_,i)=>{const day=new Date(monday);day.setDate(day.getDate()+i);return day;});}
+export function planTotals(entries, days, recipes) {const dates=new Set(days.map(dateKey));const available=new Set(recipes.map(r=>r.id));const totals={};for(const [slot,entry] of Object.entries(entries)){if(entry&&typeof entry==='object'&&dates.has(slot.split(':')[0])&&meals.includes(slot.split(':')[1])&&available.has(entry.recipeId)&&Number.isInteger(entry.servings)&&entry.servings>0&&entry.servings<=1000)totals[entry.recipeId]=(totals[entry.recipeId]||0)+entry.servings;}return totals;}

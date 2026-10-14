@@ -1066,5 +1066,20 @@ export const messages = {
   "For your chosen portions · {count} selected recipes": [
     "Për porcionet e zgjedhura · {count} receta të përzgjedhura",
     "Für deine gewählten Portionen · {count} ausgewählte Rezepte"
-  ]
+  ],
+"Weekly meal plan": ["Plani javor i vakteve", "Wochenplan"],
+"Lunch": ["Drekë", "Mittagessen"],
+"Dinner": ["Darkë", "Abendessen"],
+"Previous week": ["Java e kaluar", "Vorherige Woche"],
+"Next week": ["Java tjetër", "Nächste Woche"],
+"This week": ["Kjo javë", "Diese Woche"],
+"Choose a recipe": ["Zgjidh një recetë", "Rezept auswählen"],
+"Remove meal": ["Hiq vaktin", "Mahlzeit entfernen"],
+"Create shopping list from this week": ["Krijo listën e blerjeve për këtë javë", "Einkaufsliste für diese Woche erstellen"],
+"Clear this week": ["Pastro këtë javë", "Diese Woche leeren"],
+"Remove all meals from this week? Your recipes will stay saved.": ["Të hiqen të gjitha vaktet e kësaj jave? Recetat do të mbeten të ruajtura.", "Alle Mahlzeiten dieser Woche entfernen? Deine Rezepte bleiben gespeichert."],
+"This recipe is no longer available. Choose another recipe.": ["Kjo recetë nuk është më në dispozicion. Zgjidh një tjetër.", "Dieses Rezept ist nicht mehr verfügbar. Wähle ein anderes."],
+"Choose recipes and portions for each meal. Repeated recipes are added together when you create the shopping list.": ["Zgjidh receta dhe porcione për çdo vakt. Recetat e përsëritura mblidhen kur krijon listën e blerjeve.", "Wähle Rezepte und Portionen für jede Mahlzeit. Wiederholte Rezepte werden für die Einkaufsliste zusammengerechnet."],
+"Creating a list replaces the current shopping selection and purchased checkmarks. The plan is saved on this device and works offline; it does not sync across devices.": ["Krijimi i listës zëvendëson recetat e zgjedhura për blerje dhe shenjat e artikujve të blerë. Plani ruhet në këtë pajisje dhe punon pa internet; nuk sinkronizohet mes pajisjeve.", "Die neue Liste ersetzt die aktuelle Einkaufsauswahl und Kaufmarkierungen. Der Plan wird auf diesem Gerät gespeichert und funktioniert offline; er wird nicht zwischen Geräten synchronisiert."],
+"Could not save the meal plan. Check browser storage and try again.": ["Plani nuk u ruajt. Kontrollo hapësirën e shfletuesit dhe provo përsëri.", "Der Wochenplan konnte nicht gespeichert werden. Prüfe den Browserspeicher und versuche es erneut."]
 };
