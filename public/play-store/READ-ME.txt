@@ -1,0 +1,7 @@
+Gatime — materiale për përgatitjen e Play Store
+
+Ikona: 512×512 PNG. Grafika: 1024×500 PNG.
+Pamjet reference: 1080×1920 PNG, të kapura nga shfletuesi me receta shembull.
+Për publikim, zëvendëso pamjet reference me pamje nga aplikacioni në telefon.
+Përshkrimet shqip/gjermanisht/anglisht gjenden te store-listing.md.
+Kjo paketë nuk është dorëzuar në Google Play.

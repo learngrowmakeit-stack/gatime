@@ -25,8 +25,9 @@ export default defineConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      globIgnores: ['**/play-store/**'],
       navigateFallback: '/index.html',
-      navigateFallbackDenylist: [/^\/android-test\.html$/, /^\/downloads\//, /^\/privacy\.html$/, /^\/delete-account\.html$/, /^\/api\//, /^\/\.well-known\//],
+      navigateFallbackDenylist: [/^\/play-store\//, /^\/android-test\.html$/, /^\/downloads\//, /^\/privacy\.html$/, /^\/delete-account\.html$/, /^\/api\//, /^\/\.well-known\//],
       cleanupOutdatedCaches: true,
       clientsClaim: true,
     },

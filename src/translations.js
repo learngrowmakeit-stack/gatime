@@ -1126,5 +1126,12 @@ export const messages = {
 "Or use an email sign-in link": ["Ose përdor një lidhje hyrjeje me email", "Oder einen Anmeldelink per E-Mail verwenden"],
 "Could not start Google sign-in. Check your connection and try again.": ["Hyrja me Google nuk u hap. Kontrollo lidhjen dhe provo përsëri.", "Die Google-Anmeldung konnte nicht gestartet werden. Prüfe deine Verbindung und versuche es erneut."],
 "Sign-in was not completed. Try again.": ["Hyrja nuk u përfundua. Provo përsëri.", "Die Anmeldung wurde nicht abgeschlossen. Versuche es erneut."],
-"Connect to the internet to sign in with Google.": ["Lidhu me internetin për të hyrë me Google.", "Verbinde dich mit dem Internet, um dich mit Google anzumelden."]
+"Connect to the internet to sign in with Google.": ["Lidhu me internetin për të hyrë me Google.", "Verbinde dich mit dem Internet, um dich mit Google anzumelden."],
+"Sunday": ["E diel", "Sonntag"],
+"Monday": ["E hënë", "Montag"],
+"Tuesday": ["E martë", "Dienstag"],
+"Wednesday": ["E mërkurë", "Mittwoch"],
+"Thursday": ["E enjte", "Donnerstag"],
+"Friday": ["E premte", "Freitag"],
+"Saturday": ["E shtunë", "Samstag"]
 };
