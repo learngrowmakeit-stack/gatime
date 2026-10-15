@@ -74,3 +74,7 @@ Open **Weekly meal plan** in the navigation. Choose recipes for breakfast, lunch
 Open a recipe, choose portions, and click **Start cooking**. Follow one instruction at a time, mark steps completed, navigate backward or forward, or jump to a numbered step. Expand Ingredients for a separate checklist with scaled quantities. Instructions keep their original numerical amounts. Progress lasts only while this cooking view is open; exiting resets it. Works offline with available recipe content.
 
 Cooking mode includes a timer with minutes and seconds, pause/resume and reset. It continues across step changes and computes remaining time from a wall-clock deadline, catching up when the tab becomes visible again. Completion shows an alert and attempts a short tone/vibration where supported. Background or locked-phone audio is not guaranteed; keep the cooking view open. Closing the view cancels the timer. No push notification permission is required.
+
+## Google Play preparation
+
+See [release readiness](docs/release/PLAY-READINESS.md), [Data safety inventory](docs/release/DATA-SAFETY.md), [draft listing](docs/release/STORE-LISTING.md) and [Android source/build instructions](android/README.md). No Play release has been published. Public privacy and account-deletion pages are at `/privacy.html` and `/delete-account.html`. Account deletion needs a Vercel-only `SUPABASE_SERVICE_ROLE_KEY` and verified disposable-account testing before launch. Translation now starts disabled until explicitly enabled.

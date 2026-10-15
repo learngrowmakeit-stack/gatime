@@ -52,5 +52,13 @@ test('database enforces account isolation, version conflicts, idempotent retries
       await asUser('');await assert.rejects(()=>save(recipe,0));
       await asUser(alice);await assert.rejects(()=>save({...recipe,id:'other'},3));
     });
+    await t.test('deleting an auth user cascades recipes and mutation history without touching another account',async()=>{
+      await db.exec('reset role');
+      assert.ok(Number((await db.query('select count(*) as total from public.recipe_mutations where user_id=$1',[alice])).rows[0].total)>0);
+      await db.query('delete from auth.users where id=$1',[alice]);
+      assert.equal(Number((await db.query('select count(*) as total from public.recipes where user_id=$1',[alice])).rows[0].total),0);
+      assert.equal(Number((await db.query('select count(*) as total from public.recipe_mutations where user_id=$1',[alice])).rows[0].total),0);
+      assert.equal(Number((await db.query('select count(*) as total from public.recipes where user_id=$1',[bob])).rows[0].total),1);
+    });
   } finally { await db.close(); }
 });

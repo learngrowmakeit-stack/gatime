@@ -7,7 +7,7 @@ const cacheKey = userId => `gatime.translated.v1:${userId}`;
 function readCache(userId){try{const value=JSON.parse(localStorage.getItem(cacheKey(userId))||'{}');return value&&typeof value==='object'&&!Array.isArray(value)?value:{};}catch{return {};}}
 function validResult(source,value){return value&&value.id===source.id&&typeof value.title==='string'&&typeof value.description==='string'&&['ingredients','instructions'].every(key=>Array.isArray(value[key])&&value[key].length===source[key].length&&value[key].every(line=>typeof line==='string'));}
 export default function useTranslatedRecipes(recipes,user) {
- const {language}=useLanguage();const [enabled,setEnabled]=useState(true);const [retry,setRetry]=useState(0);const [stored,setStored]=useState({owner:null,entries:{}});const [status,setStatus]=useState('');const [error,setError]=useState('');const generation=useRef(0);
+ const {language}=useLanguage();const [enabled,setEnabled]=useState(false);const [retry,setRetry]=useState(0);const [stored,setStored]=useState({owner:null,entries:{}});const [status,setStatus]=useState('');const [error,setError]=useState('');const generation=useRef(0);
  const signature=JSON.stringify(recipes.map(sourceKey));
  useEffect(()=>{
   const run=++generation.current;const controller=new AbortController();setError('');setStatus('');

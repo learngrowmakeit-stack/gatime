@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import {clearAccountData} from './account-data';
 import { cloud, recipeApi } from './cloud';
 import { RecipeSync } from './sync-core';
 import { DEMO_RECIPES, STORAGE_KEY, parseRecipes } from './recipes';
@@ -71,5 +72,21 @@ export default function useRecipes() {
     catch { setStorageError('Could not add these recipes. Check browser storage and try again.'); }
   }
   async function resolve(id, choice) { try { await engine.current?.resolve(id, choice); syncNow(); } catch { setStorageError('Could not save your conflict choice. Check browser storage and retry.'); } }
-  return { recipes: user ? ownerId === user.id ? recipes : [] : guest.recipes, user, authReady, sync, storageError, persist, syncNow, addDeviceRecipes, guestCount: guest.recipes.length, revision: id => engine.current?.revision(id) ?? 0, resolve };
+  async function deleteAccount(email) {
+    if (!user || !cloud) throw new Error('SIGN_IN');
+    const {data:{session}}=await cloud.auth.getSession();
+    if (!session) throw new Error('SIGN_IN');
+    const response=await fetch('/api/delete-account',{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${session.access_token}`},body:JSON.stringify({confirm:'DELETE_MY_ACCOUNT',email})});
+    const result=await response.json();
+    if(!response.ok||!result.deleted)throw new Error(result.error||'DELETE_FAILED');
+    engine.current?.stop();engine.current=null;
+    // Clear only after the server confirms deletion. Never clear guest recipes.
+    clearAccountData(localStorage,user.id);
+    await cloud.auth.signOut({scope:'local'}).catch(()=>{});
+    // Supabase's default storage key; also remove it if an offline sign-out failed.
+    const authKey=`sb-${new URL(import.meta.env.VITE_SUPABASE_URL).hostname.split('.')[0]}-auth-token`;
+    for(const suffix of ['', '-code-verifier', '-user'])localStorage.removeItem(authKey+suffix);
+    window.location.replace('/');
+  }
+  return { deleteAccount, recipes: user ? ownerId === user.id ? recipes : [] : guest.recipes, user, authReady, sync, storageError, persist, syncNow, addDeviceRecipes, guestCount: guest.recipes.length, revision: id => engine.current?.revision(id) ?? 0, resolve };
 }

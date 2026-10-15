@@ -1,3 +1,4 @@
+import DeleteAccount from './DeleteAccount';
 import { useLanguage } from './Language';
 import React, { useState } from 'react';
 import { Cloud, LogIn, LogOut, RefreshCw, X } from 'lucide-react';
@@ -10,7 +11,7 @@ export default function AccountPanel({
   const {
     t
   } = useLanguage();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(()=>new URLSearchParams(window.location.search).has('delete-account'));
   const [email, setEmail] = useState('');
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
@@ -78,7 +79,7 @@ export default function AccountPanel({
               }
             }}>{t("Add recipes to my account")}</button></>}</div>}
       {sync.conflicts.map(op => <div className="sync-conflict" key={op.id}><strong>{op.data?.title || op.conflict.data?.title || t("Deleted recipe")}</strong><p>{t("This recipe changed on another device. Your edit has been kept safely. Which version should be saved?")}</p><button onClick={() => resolve(op.id, 'device')}>{t("Keep this device\u2019s") + " "}{op.data ? t("edit") : t("deletion")}</button><button onClick={() => resolve(op.id, 'cloud')}>{t("Keep the online") + " "}{op.conflict.deleted ? t("deletion") : t("version")}</button></div>)}
-      <button className="signout-button" onClick={signOut} disabled={busy}><LogOut size={14} />{busy ? t("Signing out\u2026") : t("Sign out on this device")}</button><p className="account-footnote">{sync.pending ? t("Pending changes remain saved for this account and will sync when you sign back in.") : t("Your device recipes stay separate from your account.")}</p></>}
+      <DeleteAccount account={account}/><button className="signout-button" onClick={signOut} disabled={busy}><LogOut size={14} />{busy ? t("Signing out\u2026") : t("Sign out on this device")}</button><p className="account-footnote">{sync.pending ? t("Pending changes remain saved for this account and will sync when you sign back in.") : t("Your device recipes stay separate from your account.")}</p></>}
     </section>}
   </div>;
 }
