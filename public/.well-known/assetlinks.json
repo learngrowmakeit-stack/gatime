@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.gatime.recipes.test",
+      "sha256_cert_fingerprints": [
+        "C6:6B:A9:04:EE:F6:D8:3E:E2:4B:85:EE:F8:D1:14:D1:D9:66:93:3E:86:C9:43:D2:8E:9A:19:63:41:C7:17:57"
+      ]
+    }
+  }
+]

@@ -12,16 +12,21 @@
   "iconUrl": "https://gatime-beryl.vercel.app/icons/icon-512.png",
   "maskableIconUrl": "https://gatime-beryl.vercel.app/icons/icon-maskable-512.png",
   "splashScreenFadeOutDuration": 300,
-  "signingKey": {"path": "../private/gatime-upload.keystore", "alias": "gatime-upload"},
+  "signingKey": {
+    "path": "../private/gatime-upload.keystore",
+    "alias": "gatime-upload"
+  },
   "appVersion": "1.0.0",
   "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-1.27.0",
   "fallbackType": "customtabs",
   "features": {},
-  "alphaDependencies": {"enabled": false},
+  "alphaDependencies": {
+    "enabled": false
+  },
   "enableSiteSettingsShortcut": true,
-  "minSdkVersion": 23,
+  "minSdkVersion": 24,
   "orientation": "default",
   "fingerprints": [],
   "additionalTrustedOrigins": []

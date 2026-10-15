@@ -1,0 +1,16 @@
+gradle.projectsEvaluated {
+    rootProject.tasks.register('validateGatimeBundle', JavaExec) {
+        dependsOn ':app:bundleRelease'
+        classpath = rootProject.buildscript.configurations.classpath
+        mainClass = 'com.android.tools.build.bundletool.BundleToolMain'
+        args 'validate', '--bundle=' + rootProject.file('app/build/outputs/bundle/release/app-release.aab').absolutePath
+        def resultText = new ByteArrayOutputStream()
+        standardOutput = resultText
+        doLast {
+            def report = rootProject.file('app/build/reports/bundle-validation.txt')
+            report.parentFile.mkdirs()
+            report.text = resultText.toString('UTF-8')
+            println 'Android App Bundle structure validated; report saved in app/build/reports/bundle-validation.txt'
+        }
+    }
+}

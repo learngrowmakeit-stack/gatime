@@ -1,0 +1,34 @@
+// A separate test package can coexist with the final Play app.
+android.buildTypes.debug {
+    applicationIdSuffix '.test'
+    versionNameSuffix '-test'
+    resValue 'string', 'appName', 'Gatime Test'
+    resValue 'string', 'launcherName', 'Gatime Test'
+    resValue 'string', 'providerAuthority', 'app.gatime.recipes.test.fileprovider'
+}
+
+// Optional upload signing. Credentials are read only from private environment variables.
+// An unsigned build remains possible for preparation; build.sh release requires all four.
+def names = ['GATIME_UPLOAD_STORE_FILE', 'GATIME_UPLOAD_STORE_PASSWORD', 'GATIME_UPLOAD_KEY_ALIAS', 'GATIME_UPLOAD_KEY_PASSWORD']
+def supplied = names.collectEntries { [(it): System.getenv(it)] }
+if (supplied.values().any { it }) {
+    if (!supplied.values().every { it }) {
+        throw new GradleException('Upload signing requires all four GATIME_UPLOAD_* environment variables.')
+    }
+    def privateStore = new File(supplied.GATIME_UPLOAD_STORE_FILE)
+    if (!privateStore.isAbsolute() || !privateStore.isFile()) {
+        throw new GradleException('GATIME_UPLOAD_STORE_FILE must point to an existing private keystore by absolute path.')
+    }
+    if (privateStore.canonicalPath.startsWith(rootProject.projectDir.parentFile.parentFile.canonicalPath + File.separator)) {
+        throw new GradleException('Keep the upload keystore outside the Git checkout.')
+    }
+    android.signingConfigs {
+        upload {
+            storeFile privateStore
+            storePassword supplied.GATIME_UPLOAD_STORE_PASSWORD
+            keyAlias supplied.GATIME_UPLOAD_KEY_ALIAS
+            keyPassword supplied.GATIME_UPLOAD_KEY_PASSWORD
+        }
+    }
+    android.buildTypes.release.signingConfig = android.signingConfigs.upload
+}

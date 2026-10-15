@@ -39,3 +39,11 @@ Public developer label: Gatime. Contact: learn.grow.makeit@gmail.com. Hosting: h
 No publication or Play upload has been performed. Local/mock validation is distinct from production Supabase/Gemini validation and Android device testing.
 
 Google sign-in is available in source as an alternative to email links, but external provider setup and a non-owner real-account test are still required. See [Google sign-in setup](GOOGLE-SIGN-IN.md). Google basic profile information can be stored as Supabase authentication metadata; keep privacy/Data safety disclosures aligned.
+
+## Update after Android build preparation
+
+User-reported live checks: Google login is in production, another user's recipe was not visible to the owner, and the disposable deleted account disappeared from Supabase Authentication → Users. These are manual observations, separate from automated/mock checks. Do not repeat deletion using the owner's account.
+
+Android cloud toolchain is now installed and both `android/build.sh debug` and `android/build.sh unsigned` pass. The test APK is distributed intentionally from `/android-test.html` and uses `app.gatime.recipes.test`, a separate debug certificate and provider authority. Its APK signature, package ID, min/target SDK, ZIP integrity and absence of embedded keys/native libraries were checked. Production AAB is still unsigned; no upload key has been generated, backed up or used. Play Console identity verification remains pending. Physical-device testing, production signing/association, store materials and Play testing requirements remain open.
+
+The generated unsigned AAB also passes Google bundletool structure validation. The release merged manifest retains `app.gatime.recipes`, min SDK 24 and target 36, without debugging enabled. The debug installer has a separate package ID and APK signature verified using apksigner.

@@ -14,3 +14,6 @@ android/private/
 *.jks
 *.aab
 *.apk
+
+# Intentionally distributed test installer; no private key is included.
+!public/downloads/gatime-test.apk

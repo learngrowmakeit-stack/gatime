@@ -82,3 +82,5 @@ See [release readiness](docs/release/PLAY-READINESS.md), [Data safety inventory]
 ## Google sign-in
 
 The account panel offers **Continue with Google** using Supabase OAuth and a return URL on the current app origin (`/?account=1`). Configure the Google provider and a Web OAuth client using [these steps](docs/release/GOOGLE-SIGN-IN.md). Credentials stay in Google Cloud/Supabase; no new frontend environment variables are needed. Live sign-in requires external provider setup and testing. Email-link login remains available and has its own SMTP limitations.
+
+A separately signed **Gatime Test** Android installer is available at `/android-test.html` after deployment. It requires Android 7+, uses package `app.gatime.recipes.test` and is not the Play release. See `android/README.md` for build/signing details and remaining physical-device checks.

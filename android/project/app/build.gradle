@@ -52,10 +52,11 @@ def twaManifest = [
 
 android {
     compileSdkVersion 36
+    buildToolsVersion "36.0.0"
     namespace "app.gatime.recipes"
     defaultConfig {
         applicationId "app.gatime.recipes"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 36
         versionCode 1
         versionName "1.0.0"
@@ -203,3 +204,5 @@ dependencies {
         implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.7.4'
 
 }
+
+apply from: rootProject.file('../signing.gradle')
