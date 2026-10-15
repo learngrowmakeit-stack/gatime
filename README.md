@@ -78,3 +78,7 @@ Cooking mode includes a timer with minutes and seconds, pause/resume and reset. 
 ## Google Play preparation
 
 See [release readiness](docs/release/PLAY-READINESS.md), [Data safety inventory](docs/release/DATA-SAFETY.md), [draft listing](docs/release/STORE-LISTING.md) and [Android source/build instructions](android/README.md). No Play release has been published. Public privacy and account-deletion pages are at `/privacy.html` and `/delete-account.html`. Account deletion needs a Vercel-only `SUPABASE_SERVICE_ROLE_KEY` and verified disposable-account testing before launch. Translation now starts disabled until explicitly enabled.
+
+## Google sign-in
+
+The account panel offers **Continue with Google** using Supabase OAuth and a return URL on the current app origin (`/?account=1`). Configure the Google provider and a Web OAuth client using [these steps](docs/release/GOOGLE-SIGN-IN.md). Credentials stay in Google Cloud/Supabase; no new frontend environment variables are needed. Live sign-in requires external provider setup and testing. Email-link login remains available and has its own SMTP limitations.

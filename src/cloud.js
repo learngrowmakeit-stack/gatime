@@ -6,6 +6,8 @@ export const missingCloudConfig = [
   !url && 'VITE_SUPABASE_URL',
   !key && 'VITE_SUPABASE_PUBLISHABLE_KEY',
 ].filter(Boolean);
+// Capture only the failure flag before Supabase consumes the callback URL.
+export const signInCallbackFailed = [window.location.search,window.location.hash].some(part=>{const params=new URLSearchParams(part.slice(1));return params.has('error')||params.has('error_code');});
 export const cloud = url && key ? createClient(url, key) : null;
 
 export function recipeApi(userId) {

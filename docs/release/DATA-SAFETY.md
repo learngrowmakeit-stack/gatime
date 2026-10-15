@@ -4,7 +4,7 @@ This is a technical inventory, not a completed Google Play declaration. Verify t
 
 | Data | Leaves device? | Purpose / handling |
 | --- | --- | --- |
-| Email and account ID | Optional sign-in to Supabase | Authentication and account management; sign-in emails delivered by configured email provider. |
+| Email, account ID and Google basic profile (name/profile picture URL when provided) | Optional sign-in to Supabase via Google or email | Authentication and account management; Google handles Google consent/login, and Supabase may store provider metadata. Email links use the configured email provider. No Gmail mailbox access is requested. |
 | Recipe text, favorites, manual nutrition | When saved to a signed-in account | Cloud storage and multi-device sync via Supabase; guest text stays local unless explicitly imported. Consider user-generated content categories. |
 | Chosen recipe photos | With signed-in recipe sync | Stored as resized JPEG data in recipe JSON at Supabase; no broad gallery scan. Consider Photos and videos category. |
 | Recipe titles/descriptions/ingredients/steps | Optional translation, initially off | Vercel endpoint forwards these fields to Google Gemini; account token verifies access. Email/photos are not in Gemini payload. Review Gemini data-use/retention terms, especially unpaid tier. |

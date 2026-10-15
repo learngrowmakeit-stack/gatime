@@ -37,3 +37,5 @@ Public developer label: Gatime. Contact: learn.grow.makeit@gmail.com. Hosting: h
 - https://github.com/GoogleChromeLabs/bubblewrap
 
 No publication or Play upload has been performed. Local/mock validation is distinct from production Supabase/Gemini validation and Android device testing.
+
+Google sign-in is available in source as an alternative to email links, but external provider setup and a non-owner real-account test are still required. See [Google sign-in setup](GOOGLE-SIGN-IN.md). Google basic profile information can be stored as Supabase authentication metadata; keep privacy/Data safety disclosures aligned.

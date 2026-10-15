@@ -1120,5 +1120,11 @@ export const messages = {
 "Could not delete your account. Reconnect and try again. If a previous request completed, sign in again to check.": ["Llogaria nuk u fshi. Lidhu me internetin dhe provo përsëri. Nëse një kërkesë e mëparshme u krye, hyr përsëri për ta kontrolluar.", "Das Konto konnte nicht gelöscht werden. Verbinde dich erneut und versuche es noch einmal. Falls eine frühere Anfrage abgeschlossen wurde, melde dich zur Prüfung erneut an."],
 "Privacy policy": ["Politika e privatësisë", "Datenschutzerklärung"],
 "Account deletion": ["Fshirja e llogarisë", "Kontolöschung"],
-"Optional: sends recipe titles, descriptions, ingredients and instructions to Google Gemini for translation. Photos and email are excluded. Review the privacy policy before enabling.": ["Fakultative: dërgon titujt, përshkrimet, përbërësit dhe udhëzimet te Google Gemini për përkthim. Fotot dhe emaili nuk dërgohen. Lexo politikën e privatësisë përpara aktivizimit.", "Optional: Sendet Rezepttitel, Beschreibungen, Zutaten und Anleitungen zur Übersetzung an Google Gemini. Fotos und E-Mail werden nicht gesendet. Lies vor dem Aktivieren die Datenschutzerklärung."]
+"Optional: sends recipe titles, descriptions, ingredients and instructions to Google Gemini for translation. Photos and email are excluded. Review the privacy policy before enabling.": ["Fakultative: dërgon titujt, përshkrimet, përbërësit dhe udhëzimet te Google Gemini për përkthim. Fotot dhe emaili nuk dërgohen. Lexo politikën e privatësisë përpara aktivizimit.", "Optional: Sendet Rezepttitel, Beschreibungen, Zutaten und Anleitungen zur Übersetzung an Google Gemini. Fotos und E-Mail werden nicht gesendet. Lies vor dem Aktivieren die Datenschutzerklärung."],
+"Continue with Google": ["Vazhdo me Google", "Mit Google fortfahren"],
+"Opening Google\u2026": ["Duke hapur Google…", "Google wird geöffnet…"],
+"Or use an email sign-in link": ["Ose përdor një lidhje hyrjeje me email", "Oder einen Anmeldelink per E-Mail verwenden"],
+"Could not start Google sign-in. Check your connection and try again.": ["Hyrja me Google nuk u hap. Kontrollo lidhjen dhe provo përsëri.", "Die Google-Anmeldung konnte nicht gestartet werden. Prüfe deine Verbindung und versuche es erneut."],
+"Sign-in was not completed. Try again.": ["Hyrja nuk u përfundua. Provo përsëri.", "Die Anmeldung wurde nicht abgeschlossen. Versuche es erneut."],
+"Connect to the internet to sign in with Google.": ["Lidhu me internetin për të hyrë me Google.", "Verbinde dich mit dem Internet, um dich mit Google anzumelden."]
 };
